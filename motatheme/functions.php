@@ -19,3 +19,4 @@ function register_my_menu() {
 add_action('wp_enqueue_scripts', 'mota_theme_register_assets');
 add_action( 'after_setup_theme', 'register_my_menu' );
 
+
