@@ -1,3 +1,14 @@
+
+
+body {
+    font-family: monospace;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -8,27 +19,23 @@ header {
 .custom-logo-link {
     padding-left: 146px;
 }
+
+.mota-menu {
+    padding-right: 259px;
+    font-size: 16px;
+}
+
 header ul {
     display: flex;
     list-style: none;
+    
+    li {
+        padding-left: 45px;
+
+    }
 }
 
-a {
-    text-decoration: none;
+header a:hover {
+    color: red;
+    transition: .5s;
 }
-//#menu-menu-principal {
-//    display: flex;
-//    list-style: none;
-//
-//}
-//
-//nav  ul {
-//    position: relative;
-//    font-size: 1.1em;
-//    color: red;
-//    font-weight: 600;
-//    text-decoration: none;
-//    margin-left: 20px;
-//    padding: 6px 15px;
-//    transition: .5s;
-//}
