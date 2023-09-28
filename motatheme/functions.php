@@ -108,4 +108,3 @@ add_action('admin_menu', 'mota_theme_add_admin_pages');
 //Ajout de champs à la page Admin "Tableau de bord Mota-thème"
 add_action('admin_init', 'motatheme_settings_register');
 
-
