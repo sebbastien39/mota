@@ -1,3 +1,5 @@
+@import 'variables';
+
 footer {
     display: flex;
     justify-content: center;
@@ -13,6 +15,6 @@ footer ul {
 }
 
 footer a:hover {
-    color: red;
+    color: $lien;
     transition: .5s;
 }

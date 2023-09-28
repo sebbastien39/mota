@@ -1,7 +1,8 @@
-
+@import 'variables';
 
 body {
     font-family: monospace;
+    background-color: white;
 }
 
 a {
@@ -27,15 +28,13 @@ header {
 
 header ul {
     display: flex;
-    list-style: none;
-    
+    list-style: none;    
     li {
         padding-left: 45px;
-
     }
 }
 
 header a:hover {
-    color: red;
+    color: $lien;
     transition: .5s;
 }

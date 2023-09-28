@@ -1,5 +1,4 @@
 /* The Modal (background) */
-
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -15,7 +14,6 @@
 
 /* Modal Content/Box */
 .modal-content {
-
   width: 597px;
   min-height: 769px;
   background-color: #fefefe;
@@ -41,15 +39,23 @@
   font-weight: bold;
 }
 
+@keyframes anim-fermeture-modale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
 .close:hover,
 .close:focus {
   color: black;
   text-decoration: none;
-  cursor: pointer;
+  cursor: grab;
 }
 
 /* Mise en forme champs formulaire "CONTACT"*/
-
 /*container formulaire contact*/
 .wpcf7, .invalid, .wpcf7-form {
   display: flex;
@@ -94,7 +100,6 @@
   border: 1px solid #B8BBC2;
   background: #FFF; 
   color: #313144;
-  gap: 4px;
 }
 
 /*Champs formulaire Message*/
@@ -104,5 +109,4 @@
   border-radius: 8px;
   border: 1px solid #B8BBC2;
   background: #FFF;
-
 }
