@@ -1,0 +1,88 @@
+/*
+Error: Invalid CSS after "...modale contact)": expected "{", was "}"
+        on line 43 of sass/_modale.scss
+        from line 1 of sass/main.scss
+
+38:     height: 100%; /* Full height *\/
+39:     overflow: auto; /* Enable scroll if needed *\/
+40:     background-color: rgb(0, 0, 0); /* Fallback color *\/
+41:     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity *\/
+42: >>>>>>> parent of 5d15189 (Mise en forme CSS formulaire modale contact)
+43:   }
+44:   
+45:   /* Modal Content/Box *\/
+46:   .modal-content {
+47:     background-color: #fefefe;
+48:     margin: 15% auto; /* 15% from the top and centered *\/
+
+Backtrace:
+sass/_modale.scss:43
+sass/main.scss:1
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:688:in `block'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:697:in `block_contents'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:225:in `directive_body'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:217:in `directive'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:707:in `block_child'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:137:in `stylesheet'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/scss/parser.rb:41:in `parse'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/engine.rb:414:in `_to_tree'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/engine.rb:321:in `to_tree'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:323:in `block in visit_import'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/stack.rb:88:in `block in with_import'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/stack.rb:88:in `with_import'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:322:in `visit_import'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/stack.rb:79:in `block in with_base'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/stack.rb:135:in `with_frame'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/stack.rb:79:in `with_base'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `map'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/visitors/perform.rb:10:in `visit'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/root_node.rb:36:in `css_tree'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:462:in `update_stylesheet'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `each'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:443:in `on_file_changed'
+/home/sb/gems/gems/sass-3.7.4/lib/sass/plugin/compiler.rb:320:in `block in watch'
+/home/sb/gems/gems/sass-listen-4.0.0/lib/sass-listen/event/config.rb:23:in `call'
+/home/sb/gems/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:115:in `_process_changes'
+/home/sb/gems/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:19:in `block in loop_for'
+/home/sb/gems/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop'
+/home/sb/gems/gems/sass-listen-4.0.0/lib/sass-listen/event/processor.rb:15:in `loop_for'
+/home/sb/gems/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:84:in `_wait_for_changes'
+/home/sb/gems/gems/sass-listen-4.0.0/lib/sass-listen/event/loop.rb:42:in `block in setup'
+/home/sb/gems/gems/sass-listen-4.0.0/lib/sass-listen/internals/thread_pool.rb:6:in `block in add'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...modale contact)\": expected \"{\", was \"}\"\A         on line 43 of sass/_modale.scss\A         from line 1 of sass/main.scss\A \A 38:     height: 100%; /* Full height */\A 39:     overflow: auto; /* Enable scroll if needed */\A 40:     background-color: rgb(0, 0, 0); /* Fallback color */\A 41:     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */\A 42: >>>>>>> parent of 5d15189 (Mise en forme CSS formulaire modale contact)\A 43:   }\A 44:   \A 45:   /* Modal Content/Box */\A 46:   .modal-content {\A 47:     background-color: #fefefe;\A 48:     margin: 15% auto; /* 15% from the top and centered */"; }

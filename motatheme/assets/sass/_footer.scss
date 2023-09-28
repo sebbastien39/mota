@@ -1,0 +1,20 @@
+@import 'variables';
+
+footer {
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid black;
+}
+
+footer ul {
+    display: flex;
+    list-style: none;
+    li {
+        padding-right: 86px;
+    }
+}
+
+footer a:hover {
+    color: $lien;
+    transition: .5s;
+}

@@ -1,0 +1,152 @@
+/* The Modal (background) */
+<<<<<<< HEAD
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  width: 597px;
+  min-height: 769px;
+  background-color: #fefefe;
+  margin: 5% auto; /* 5% from the top and centered */
+  border: 5px solid black;
+  animation: anim-ouverture-modale .25s;
+}
+
+@keyframes anim-ouverture-modale {
+  from {
+    transform: scale(0);
+=======
+
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+>>>>>>> parent of 5d15189 (Mise en forme CSS formulaire modale contact)
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+<<<<<<< HEAD
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+@keyframes anim-fermeture-modale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(0);
+  }
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: grab;
+}
+
+/* Mise en forme champs formulaire "CONTACT"*/
+/*container formulaire contact*/
+.wpcf7, .invalid, .wpcf7-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+/*Text formulaire invalide*/
+.wpcf7-not-valid-tip {
+  text-align: center;
+  padding-top: 2px;
+}
+
+/*Bouton formulaire contact*/
+.wpcf7-submit {
+  width: 263px;
+  height: 50px;
+  border-radius: 2px;
+  background: #D8D8D8;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.02); 
+}
+
+.wpcf7-spinner {
+  //visibility: hidden !important;
+  margin: 0;
+  width: 0;
+}
+
+.wpcf7 p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+}
+
+/*Champs formulaire Nom E-mail Réf-photo*/
+.wpcf7-text, .wpcf7-email {
+  width: 263px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid #B8BBC2;
+  background: #FFF; 
+  color: #313144;
+}
+
+/*Champs formulaire Message*/
+.wpcf7-textarea {
+  width: 263px;
+  height: 210px;
+  border-radius: 8px;
+  border: 1px solid #B8BBC2;
+  background: #FFF;
+}
+=======
+  
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+>>>>>>> parent of 5d15189 (Mise en forme CSS formulaire modale contact)
