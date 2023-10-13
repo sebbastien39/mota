@@ -1,5 +1,25 @@
 @import 'variables';
 
+/* Google Fonts */
+
+@font-face {
+    font-family: 'Space Mono', monospace;;
+    font-style: bold;
+    font-weight: 700;
+    src: local('ashe-playfair-font'),
+         url('./assets/fonts/SpaceMono-BoldItalic') format('woff2'),
+         url('/assets/fonts/SpaceMono-Bold.woff2') format('woff2');
+  }
+
+  @font-face {
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    src: local('ashe-opensans-font'),
+         url('./assets/fonts/SpaceMono-Italic') format('woff2'),
+         url('./assets/fonts/SpaceMono-Regular') format('woff2');
+  }
+
 body {
     font-family: monospace;
     background-color: white;

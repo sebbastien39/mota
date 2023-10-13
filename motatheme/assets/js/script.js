@@ -35,14 +35,14 @@
 
 (function ($) { 
       // Tout le code jQuery ira ici ,  $ recupere jQuery, evite conflit
-      $('.contact-btn').on('click', function() {
+      $('.contact-btn').on('click', function() {//ouvrir la modale de contact
         $('#myModal').show();
     });
     
-    $('.close').on('click', function() {
+    $('.close').on('click', function() {//fermer la modale de contact
         $('#myModal').hide();
     })
-   $(document).on('click', function(event) {
+   $(document).on('click', function(event) {//click en dehors de la modale 
        if(event.target == $('#myModal')[0]) {
            $('#myModal').hide();
        }

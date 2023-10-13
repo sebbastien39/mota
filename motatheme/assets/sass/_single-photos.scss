@@ -5,16 +5,13 @@
 
 .container-image {
     display: flex;
-    //justify-content: space-between;
     padding-top: 38px;
-
 }
 
 .bloc1 {
     width: 50vw;
     display: flex;
     border-bottom: 1px solid black;
-    //padding-right: 10px;
     article {
         align-self: flex-end;
     }
@@ -23,7 +20,7 @@
         font-size: 66px;
         font-style: italic;
         font-weight: 400;
-        line-height: 58px; /* 87.879% */
+        line-height: 58px;
         text-transform: uppercase; 
         width: 420px;
     }
@@ -41,8 +38,6 @@
 .bloc2 {
     display: flex;
     width: 50vw;
-    //vertical-align: middle;
-    //padding-left: 10px;
     object-fit: contain;
     justify-content: center;
 }
@@ -50,10 +45,8 @@
 .bloc3 {
     height: 118px;
     justify-content: space-between;
-    //width: 1140px;
     display: flex;
     align-items: center;
-    //padding-left: 146px;
     border-bottom: 1px solid black;
     p {
         font-family: Poppins;
@@ -62,7 +55,6 @@
         font-weight: 300;
         line-height: normal;
         padding-right: 196px;
-
     }
     button {
         width: 272px;
@@ -76,66 +68,46 @@
 
 .bloc3-button {
     display: flex;
-
 }
 
 .bloc3-image {
 
 }
 
-.bloc4-image-image image {
-    Width: 81px;
-    Height: 71px;
+.bloc3-arrows {
+    display: flex;
+    justify-content: space-between;
 }
 
-.bloc4 image {
-    width: 564px;
-    height: 495px;
-    //height: 500px;
+.bloc4 {
+    p {
+        padding-left: 145px;
+        padding-top: 60px;
+        padding-bottom: 40px;
+        font-size: 18px;
+    }
 }
 
-//Container
-//.container-contenu-image {
-//    display: flex;
-//    
-//   // width: 100vw;
-//    //height: 100vh;
-
-//}
-//
-////.bloc1 {
-////    display: flex;
-////    width: 50%;
-////    width: 100vw;
-////    height: 100vh;
-////}
-////
-////.bloc2 {
-////    //display: flex   ;
-////    object-fit: contain;
-////   width: 50%;
-////}
-//
-//
-////Titre Référence Catégorie Format Année
-//.container-contenu-image article {
-//    align-self: flex-end;
-//    
-//}
-//
-//.image-mota {
-////display: block;
-//   width: 50%;
-//   object-fit: contain;
-//}
-//
-//.bloc3 {
-//    height: 118px;
-//}
-//
-//.contact-contenu-image {
-//    width: 50%;
-//}
+.bloc4-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    button {
+        width: 272px;
+        height: 50px;
+        padding: 8px 15px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        font-family: Space Mono;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal; 
+    }
+}
 
 .autre-image {
     width: 50%;
@@ -145,7 +117,7 @@
 .autres-images {
     display: flex;
     justify-content: center;
-    margin: 0 auto;
+    margin: 0 auto; //pour centrer le contenu
     gap: 20px;
     width: 60vw;
 }

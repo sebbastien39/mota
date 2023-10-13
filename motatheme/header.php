@@ -19,5 +19,4 @@
             'container' => 'nav',
             'container_class' => 'mota-menu',
         ]); //Affiche le menu créé ds functions.php?>
-
     </header>

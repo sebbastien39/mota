@@ -102,6 +102,23 @@
   border: 1px solid #B8BBC2;
   background: #FFF; }
 
+.hero-image {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center; }
+
+/* Google Fonts */
+@font-face {
+  font-family: 'Space Mono', monospace;
+  font-style: bold;
+  font-weight: 700;
+  src: local("ashe-playfair-font"), url("./assets/fonts/SpaceMono-BoldItalic") format("woff2"), url("/assets/fonts/SpaceMono-Bold.woff2") format("woff2"); }
+@font-face {
+  font-family: 'Open Sans', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  src: local("ashe-opensans-font"), url("./assets/fonts/SpaceMono-Italic") format("woff2"), url("./assets/fonts/SpaceMono-Regular") format("woff2"); }
 body {
   font-family: monospace;
   background-color: white; }
@@ -169,7 +186,6 @@ footer a:hover {
     font-style: italic;
     font-weight: 400;
     line-height: 58px;
-    /* 87.879% */
     text-transform: uppercase;
     width: 420px; }
   .bloc1 p {
@@ -211,13 +227,34 @@ footer a:hover {
 .bloc3-button {
   display: flex; }
 
-.bloc4-image-image image {
-  Width: 81px;
-  Height: 71px; }
+.bloc3-arrows {
+  display: flex;
+  justify-content: space-between; }
 
-.bloc4 image {
-  width: 564px;
-  height: 495px; }
+.bloc4 p {
+  padding-left: 145px;
+  padding-top: 60px;
+  padding-bottom: 40px;
+  font-size: 18px; }
+
+.bloc4-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 40px; }
+  .bloc4-button button {
+    width: 272px;
+    height: 50px;
+    padding: 8px 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-family: Space Mono;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal; }
 
 .autre-image {
   width: 50%;

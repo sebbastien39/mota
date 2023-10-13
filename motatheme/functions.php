@@ -6,25 +6,29 @@ add_theme_support( 'custom-logo' );
 //Sélection d'une image dans photos
 add_theme_support( 'post-thumbnails' );
 
+//add_theme_support( 'responsive-embeds' );
+
 
 function register_my_image_sizes() {
 add_image_size( 'mota-thumbnail', 80, 80, 'center' );
+//add_image_size('mota-info-photo', 762);
 add_image_size('mota-image-resultat', 564, 495, 'center');
+add_image_size('mota-hero', 1440, 962);
 }
 
 //add_filter('manage_photos_posts_columns', function ($columns) {
 //    return [
-//        'thumbnail' => 'Miniature',
+//        //'thumbnail' => 'Miniature',
 //        'cb' => $columns['cb'],
 //        'title' => $columns['title'],
 //        'date' => $columns['date'],
-//        'taxonomies' => $columns['motatheme_categorie'],
+//        //'taxonomy' => $columns['motatheme_categorie'],
+//        'motatheme_categorie' => $columns['Catégories'],
 //    ];
 //});
 //
 //add_filter('manage_photos_posts_custom_column', function ($column) {
 //    the_post_thumbnail('thumbnail','motatheme_categorie');
-//
 //});
 
 
@@ -41,13 +45,13 @@ function register_my_menu() {
     register_nav_menu('footer-menu', __( 'Pied de page', 'motatheme' ) );
 }
 
-//Création taxonomie X2 - "Catégorie" "Format" sur custom_post_type "photos"
+//Création taxonomie X2 - "Catégorie" et "Format" sur custom_post_type "photos"
 function motatheme_init() {
     register_taxonomy('motatheme_categorie','photos',[
         'labels' => [
             'name' => 'Catégories',
         ],
-        'show_in_rest' => true,
+        'show_in_rest' => true,//accessible dans l'éditeur de block
         'hierarchical' => true,//checkbox
         'show_admin_column' => true, //Affiche catégorie ds admin photos
         ]);
@@ -55,7 +59,7 @@ function motatheme_init() {
             'labels' => [
                 'name' => 'Formats',
             ],
-            'show_in_rest' => true,
+            'show_in_rest' => true,//accessible dans l'éditeur de block
             'hierarchical' => true,//checkbox
             'show_admin_column' => true, //Affiche format ds admin photos
             ]);
@@ -87,7 +91,7 @@ $args_photo = array(
     'show_in_admin_bar' => true,    
     'show_in_nav_menus' => true,    
     'can_export'        => true,    
-    'has_archive'       => true,    
+    'has_archive'       => true,
     'exclude_from_search'   => false,    
     'publicly_queryable' => true,    
     'capability_type'   => 'post',  //gestion de droit  
@@ -131,7 +135,7 @@ add_action('wp_enqueue_scripts', 'mota_theme_register_assets');
 //Menu de navigation
 add_action( 'after_setup_theme', 'register_my_menu' );
 add_action( 'after_setup_theme', 'register_my_image_sizes' );
-//init
+//initialisation des taxonomies "catégorie" et "format"
 add_action('init', 'motatheme_init');
 //Page d'Administration "Mota thème"
 add_action('admin_menu', 'mota_theme_add_admin_pages');
