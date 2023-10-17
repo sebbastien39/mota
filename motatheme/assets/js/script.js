@@ -32,7 +32,7 @@
 //jQuery(document).ready(function(){
 //    jQuery('#refPhoto').val('hello');
 //});
-
+//===========================================================================================================================Modale Contact, input Référence
 (function ($) { 
       // Tout le code jQuery ira ici ,  $ recupere jQuery, evite conflit
       $('.contact-btn').on('click', function() {//ouvrir la modale de contact
@@ -50,5 +50,25 @@
       $('#refPhoto').val($('#reference').text().trim().toUpperCase());//Changer la valeur de l'input référence
   })(jQuery);
 
+//===========================================================================================================================Flèche gauche
+let arrow_left = document.querySelector(".arrow_left");//Récupération élément image flèche gauche
+const displayImageLeft = document.querySelector('.display-none-image-left')//Récupération élément image
+arrow_left.addEventListener("mouseover", (event) => {
+    displayImageLeft.classList.add("show-image")
+});
 
+arrow_left.addEventListener("mouseleave", (event) => {
+    displayImageLeft.classList.remove("show-image")
+});
 
+//===========================================================================================================================Flèche droite
+let arrow_right = document.querySelector(".arrow_right");//Récupération élément image flèche droite
+const displayImageRight = document.querySelector('.display-none-image-right')//Récupération élément image
+
+arrow_right.addEventListener("mouseover", (event) => {
+    displayImageRight.classList.add("show-image")
+});
+
+arrow_right.addEventListener("mouseleave", (event) => {
+    displayImageRight.classList.remove("show-image")
+});

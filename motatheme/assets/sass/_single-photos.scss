@@ -75,6 +75,11 @@
 
 }
 
+.bloc3-image-image {
+    height: 80px;
+    width: 80px;
+}
+
 .bloc3-arrows {
     display: flex;
     justify-content: space-between;
@@ -136,3 +141,11 @@ button {
         background-color: #313144;
     }
   }
+
+.display-none-image-left, .display-none-image-right {
+  display: none;
+}
+
+.show-image {
+  display: block;
+}

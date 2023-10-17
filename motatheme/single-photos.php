@@ -32,7 +32,7 @@
             <div class="bloc3-image">
                 <div class="bloc3-image-image">
                 <?php
-                    //Flèche gauche requête par date==========================================
+                    //Flèche gauche, requête pour récupérer les données par date==========================================
                     $previous = array(
                         'post_type' => 'photos',
                         'posts_per_page' => 1,
@@ -50,12 +50,12 @@
                         $image_previous_id = get_post_thumbnail_id();
                         if($image_previous_id) {
                             $image_previous = wp_get_attachment_image_src($image_previous_id, 'mota-thumbnail');
-                            echo '<img src="'.$image_previous[0].'">';
+                            echo '<img class="display-none-image-left" src="'.$image_previous[0].'">';
                         }   
                     };
                     wp_reset_postdata();
 
-                    // Flèche droite Requête d'après la date=====================================
+                    //Flèche droite, requête pour récupérer les données par date=====================================
                     $next = array(
                         'post_type' => 'photos',
                         'posts_per_page' => 1,
@@ -71,7 +71,7 @@
                         $image_next_id = get_post_thumbnail_id();
                         if($image_next_id) {
                             $image_next = wp_get_attachment_image_src($image_next_id, 'mota-thumbnail');
-                            echo '<img src="'.$image_next[0].'">';
+                            echo '<img class="display-none-image-right" src="'.$image_next[0].'">';
                         }                       
                     };
                     wp_reset_postdata();                   
@@ -83,7 +83,7 @@
                         if(!empty($post_previous)) {
                             $url_previous = get_permalink($post_previous);
                             ?>
-                            <a href="<?= $url_previous ?>"><img src="<?= get_stylesheet_directory_uri()."/assets/images/arrow-left.png" ?>" alt="arrow-left"></a>
+                            <a href="<?= $url_previous ?>"><img class="arrow_left" src="<?= get_stylesheet_directory_uri()."/assets/images/arrow-left.png" ?>" alt="arrow-left"></a>
                             <?php
                         };
                     ?>
@@ -92,7 +92,7 @@
                         if(!empty($post_next)) {
                             $url_next = get_permalink($post_next);
                             ?>
-                            <a href="<?= $url_next ?>"><img src="<?= get_stylesheet_directory_uri()."/assets/images/arrow-right.png" ?>" alt="arrow-right"></a>
+                            <a href="<?= $url_next ?>"><img class="arrow_right" src="<?= get_stylesheet_directory_uri()."/assets/images/arrow-right.png" ?>" alt="arrow-right"></a>
                             <?php
                         };
                     ?>

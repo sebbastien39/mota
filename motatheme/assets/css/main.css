@@ -166,17 +166,6 @@ h1 {
   .btn-charger-plus button {
     margin: 0 auto; }
 
-/* Google Fonts */
-@font-face {
-  font-family: 'Space Mono', monospace;
-  font-style: italic;
-  font-weight: 700;
-  src: local("space-mono-italic"), url("../fonts/SpaceMono-Italic.woff2") format("woff2"); }
-@font-face {
-  font-family: 'Space Mono', monospace;
-  font-style: normal;
-  font-weight: 400;
-  src: local("space-mono"), url("../fonts/SpaceMono-Regular.woff2") format("woff2"); }
 body {
   font-family: 'Space Mono', monospace;
   background-color: white; }
@@ -285,6 +274,10 @@ footer a:hover {
     letter-spacing: 1.8px;
     text-transform: uppercase; }
 
+.bloc3-image-image {
+  height: 80px;
+  width: 80px; }
+
 .bloc3-arrows {
   display: flex;
   justify-content: space-between; }
@@ -335,5 +328,11 @@ button {
     border-color: #313144;
     color: white;
     background-color: #313144; }
+
+.display-none-image-left, .display-none-image-right {
+  display: none; }
+
+.show-image {
+  display: block; }
 
 /*# sourceMappingURL=main.css.map */
