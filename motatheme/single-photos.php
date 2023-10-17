@@ -31,11 +31,74 @@
             </div>
             <div class="bloc3-image">
                 <div class="bloc3-image-image">
-                <?php the_post_thumbnail('mota-thumbnail'); ?>
+                <?php
+                    //Preview
+                    $previous = array(
+                        'post_type' => 'photos',
+                        'posts_per_page' => 1,
+                        'orderby' => 'date',
+                        'order' => 'DESC',
+                        'date_query' => array(
+                            'before' => get_the_date('Y-m-d H:i:s'),
+                        ),
+                    );
+                    $query_previous = new WP_Query($previous);
+
+                    //
+                    if($query_previous->have_posts()) {
+                        $query_previous->the_post();
+                        $image_previous_id = get_post_thumbnail_id();
+                        if($image_previous_id) {
+                            $image_previous = wp_get_attachment_image_src($image_previous_id, 'mota-thumbnail');
+                            echo '<img src="'.$image_previous[0].'">';
+                        }   
+                    };
+                    wp_reset_postdata();
+
+                    //Requête d'après la date
+                    $next = array(
+                        'post_type' => 'photos',
+                        'posts_per_page' => 1,
+                        'orderby' => 'date',
+                        'order' => 'ASC',
+                        'date_query' => array(
+                            'after' => get_the_date('Y-m-d H:i:s'),
+                        ),
+                    );
+                    $query_next = new WP_Query($next);
+                    if($query_next->have_posts()) {
+                        $query_next->the_post();
+                        $image_next_id = get_post_thumbnail_id();
+                        if($image_next_id) {
+                            $image_next = wp_get_attachment_image_src($image_next_id, 'mota-thumbnail');
+                            echo '<img src="'.$image_next[0].'">';
+                        }                       
+                    };
+
+                    wp_reset_postdata();
+                    
+                ?>
                 </div>
                 <div class="bloc3-arrows">
-                   <a href="<?php the_post_navigation(); ?>"><img src="<?= get_stylesheet_directory_uri()."/assets/images/arrow-left.png" ?>" title='hello' alt="arrow-left"></a>
-                   <a href="<?php the_post_navigation(); ?>"><img src="<?= get_stylesheet_directory_uri()."/assets/images/arrow-right.png" ?>" alt="arrow-right"></a>
+                    <?php
+                        $post_previous = get_previous_post();
+                        if(!empty($post_previous)) {
+                            $url_previous = get_permalink($post_previous);
+                            ?>
+                            <a href="<?= $url_previous ?>"><img src="<?= get_stylesheet_directory_uri()."/assets/images/arrow-left.png" ?>" alt="arrow-left"></a>
+                            <?php
+                        };
+                    ?>
+
+                    <?php
+                        $post_next = get_next_post();
+                        if(!empty($post_next)) {
+                            $url_next = get_permalink($post_next);
+                            ?>
+                            <a href="<?= $url_next ?>"><img src="<?= get_stylesheet_directory_uri()."/assets/images/arrow-right.png" ?>" alt="arrow-right"></a>
+                            <?php
+                        };
+                    ?>
                 </div>
             </div>
         </div>
@@ -44,12 +107,17 @@
             <p>Vous aimerez aussi</p>
         <div class="autres-images">
             <?php 
+            $categorie = get_the_terms($post->ID, 'motatheme_categorie' );
             // 1. On définit les arguments pour définir ce que l'on souhaite récupérer
             $args = array(
                 'post_type' => 'photos',
-                array(
-                'taxonomy' => 'motatheme_categorie',
-                ),
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => 'motatheme_categorie',
+                        'field' => 'id',
+                        'terms' => $categorie[0]->term_id,
+                    )
+                    ),             
                 'orderby' => 'rand',
                 'post__not_in' => array($post->ID),
                 //'category' => 'television',
@@ -60,7 +128,6 @@
                 //'meta_compare' => '<' // < > != >= <=
                 'posts_per_page' => 2,
             );
-
             // 2. On exécute la WP Query
             $my_query = new WP_Query( $args );
 
@@ -71,7 +138,6 @@
                 get_template_part('template-parts/photo_block');
             endwhile;
             endif;
-
             // 4. On réinitialise à la requête principale (important)
             wp_reset_postdata();
             ?>  

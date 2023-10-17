@@ -16,7 +16,7 @@
         align-self: flex-end;
     }
     h2 {
-        font-family: Space Mono;
+        font-family: 'Space Mono', monospace;
         font-size: 66px;
         font-style: italic;
         font-weight: 400;
@@ -25,7 +25,7 @@
         width: 420px;
     }
     p {
-        font-family: Space Mono;
+        font-family: 'Space Mono', monospace;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
@@ -49,25 +49,26 @@
     align-items: center;
     border-bottom: 1px solid black;
     p {
-        font-family: Poppins;
+        font-family: 'Poppins', sans-serif;
         font-size: 14px;
         font-style: normal;
         font-weight: 300;
         line-height: normal;
         padding-right: 196px;
     }
-    button {
-        width: 272px;
-        height: 50px;
-        font-family: space;
-        font-weight: 400;
-        font-size: 12px;
-        padding: 8px 15px;
-    }
 }
 
 .bloc3-button {
     display: flex;
+    p {
+        font-family: 'Space Mono', monospace;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 1.8px;
+        text-transform: uppercase; 
+    }
 }
 
 .bloc3-image {
@@ -94,19 +95,7 @@
     justify-content: center;
     padding-top: 40px;
     padding-bottom: 40px;
-    button {
-        width: 272px;
-        height: 50px;
-        padding: 8px 15px;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        font-family: Space Mono;
-        font-size: 12px;
-        font-style: normal;
-        font-weight: 400;
-        line-height: normal; 
-    }
+
 }
 
 .autre-image {
@@ -121,3 +110,29 @@
     gap: 20px;
     width: 60vw;
 }
+
+button {
+    width: 272px;
+    height: 50px;
+    font-family: 'Space Mono', monospace;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 8px 15px;  
+    border-radius: 5px;
+    border-color: #313144;
+    color: white;
+    background-color: #313144;
+    cursor: pointer;  
+    transition: all 400ms;
+    &:hover {
+    transform: scale(1.10);
+    background-color: white;
+    color: #313144;
+    border-color: #313144;
+    }
+    &:active {
+        border-color: #313144;
+        color: white;
+        background-color: #313144;
+    }
+  }

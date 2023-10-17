@@ -1,7 +1,55 @@
+h1 {
+    font-family: 'Space Mono', monospace;
+font-size: 96px;
+font-style: italic;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase; 
+//color: #FFFF;
+}
+
 .hero-image {
     display: flex;
     align-items: center;
-    width: 100%;
+    //width: 1440px;
+    justify-content: center;    
+}
+
+
+//Select
+.container-select {
+    display: flex;
+
+    padding-right: 146px;
+}
+
+.select-left {
+    width: 50vw;
+    padding-left: 146px;
+    justify-content: space-around;
+}
+
+.select-right {
+    width: 50vw;
+
+    display: flex;
+    justify-content: flex-end;
+}
+
+//Choix images
+.selection-images {
     justify-content: center;
-    
+    margin: 0 auto; //pour centrer le contenu
+    gap: 20px;
+    width: 50%;
+}
+
+//Bouton
+.btn-charger-plus {
+    display: flex;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    button {
+        margin: 0 auto;
+    }
 }

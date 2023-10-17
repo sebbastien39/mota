@@ -3,25 +3,23 @@
 /* Google Fonts */
 
 @font-face {
-    font-family: 'Space Mono', monospace;;
-    font-style: bold;
+    font-family: 'Space Mono', monospace;
+    font-style: italic;
     font-weight: 700;
-    src: local('ashe-playfair-font'),
-         url('./assets/fonts/SpaceMono-BoldItalic') format('woff2'),
-         url('/assets/fonts/SpaceMono-Bold.woff2') format('woff2');
+    src: local('space-mono-italic'),
+         url('../fonts/SpaceMono-Italic.woff2') format('woff2');
   }
 
   @font-face {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Space Mono', monospace;
     font-style: normal;
     font-weight: 400;
-    src: local('ashe-opensans-font'),
-         url('./assets/fonts/SpaceMono-Italic') format('woff2'),
-         url('./assets/fonts/SpaceMono-Regular') format('woff2');
+    src: local('space-mono'),
+         url('../fonts/SpaceMono-Regular.woff2') format('woff2');
   }
 
 body {
-    font-family: monospace;
+    font-family: 'Space Mono', monospace;
     background-color: white;
 }
 
@@ -53,9 +51,8 @@ header ul {
     li {
         padding-left: 45px;
     }
-}
-
-header a:hover {
-    color: $lien;
-    transition: .5s;
+    a:hover {
+        color: $lien;
+        transition: .5s;
+    }
 }

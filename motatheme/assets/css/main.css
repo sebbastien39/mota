@@ -102,25 +102,83 @@
   border: 1px solid #B8BBC2;
   background: #FFF; }
 
+/*Button submit*/
+.wpcf7-submit {
+  width: 272px;
+  height: 50px;
+  font-family: space;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border-color: #313144;
+  color: white;
+  background-color: #313144;
+  cursor: pointer;
+  transition: all 400ms; }
+  .wpcf7-submit:hover {
+    transform: scale(1.1);
+    background-color: white;
+    color: #313144;
+    border-color: #313144; }
+  .wpcf7-submit:active {
+    border-color: #313144;
+    color: white;
+    background-color: #313144; }
+
+h1 {
+  font-family: 'Space Mono', monospace;
+  font-size: 96px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase; }
+
 .hero-image {
   display: flex;
   align-items: center;
-  width: 100%;
   justify-content: center; }
+
+.container-select {
+  display: flex;
+  padding-right: 146px; }
+
+.select-left {
+  width: 50vw;
+  padding-left: 146px;
+  justify-content: space-around; }
+
+.select-right {
+  width: 50vw;
+  display: flex;
+  justify-content: flex-end; }
+
+.selection-images {
+  justify-content: center;
+  margin: 0 auto;
+  gap: 20px;
+  width: 50%; }
+
+.btn-charger-plus {
+  display: flex;
+  padding-top: 40px;
+  padding-bottom: 40px; }
+  .btn-charger-plus button {
+    margin: 0 auto; }
 
 /* Google Fonts */
 @font-face {
   font-family: 'Space Mono', monospace;
-  font-style: bold;
+  font-style: italic;
   font-weight: 700;
-  src: local("ashe-playfair-font"), url("./assets/fonts/SpaceMono-BoldItalic") format("woff2"), url("/assets/fonts/SpaceMono-Bold.woff2") format("woff2"); }
+  src: local("space-mono-italic"), url("../fonts/SpaceMono-Italic.woff2") format("woff2"); }
 @font-face {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Space Mono', monospace;
   font-style: normal;
   font-weight: 400;
-  src: local("ashe-opensans-font"), url("./assets/fonts/SpaceMono-Italic") format("woff2"), url("./assets/fonts/SpaceMono-Regular") format("woff2"); }
+  src: local("space-mono"), url("../fonts/SpaceMono-Regular.woff2") format("woff2"); }
 body {
-  font-family: monospace;
+  font-family: 'Space Mono', monospace;
   background-color: white; }
 
 a {
@@ -146,10 +204,9 @@ header ul {
   list-style: none; }
   header ul li {
     padding-left: 45px; }
-
-header a:hover {
-  color: #E00000;
-  transition: .5s; }
+  header ul a:hover {
+    color: #E00000;
+    transition: .5s; }
 
 footer {
   display: flex;
@@ -181,7 +238,7 @@ footer a:hover {
   .bloc1 article {
     align-self: flex-end; }
   .bloc1 h2 {
-    font-family: Space Mono;
+    font-family: 'Space Mono', monospace;
     font-size: 66px;
     font-style: italic;
     font-weight: 400;
@@ -189,7 +246,7 @@ footer a:hover {
     text-transform: uppercase;
     width: 420px; }
   .bloc1 p {
-    font-family: Space Mono;
+    font-family: 'Space Mono', monospace;
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -210,22 +267,23 @@ footer a:hover {
   align-items: center;
   border-bottom: 1px solid black; }
   .bloc3 p {
-    font-family: Poppins;
+    font-family: 'Poppins', sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
     padding-right: 196px; }
-  .bloc3 button {
-    width: 272px;
-    height: 50px;
-    font-family: space;
-    font-weight: 400;
-    font-size: 12px;
-    padding: 8px 15px; }
 
 .bloc3-button {
   display: flex; }
+  .bloc3-button p {
+    font-family: 'Space Mono', monospace;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.8px;
+    text-transform: uppercase; }
 
 .bloc3-arrows {
   display: flex;
@@ -243,18 +301,6 @@ footer a:hover {
   justify-content: center;
   padding-top: 40px;
   padding-bottom: 40px; }
-  .bloc4-button button {
-    width: 272px;
-    height: 50px;
-    padding: 8px 15px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    font-family: Space Mono;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal; }
 
 .autre-image {
   width: 50%;
@@ -266,5 +312,28 @@ footer a:hover {
   margin: 0 auto;
   gap: 20px;
   width: 60vw; }
+
+button {
+  width: 272px;
+  height: 50px;
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 8px 15px;
+  border-radius: 5px;
+  border-color: #313144;
+  color: white;
+  background-color: #313144;
+  cursor: pointer;
+  transition: all 400ms; }
+  button:hover {
+    transform: scale(1.1);
+    background-color: white;
+    color: #313144;
+    border-color: #313144; }
+  button:active {
+    border-color: #313144;
+    color: white;
+    background-color: #313144; }
 
 /*# sourceMappingURL=main.css.map */

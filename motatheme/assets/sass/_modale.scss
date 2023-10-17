@@ -111,3 +111,30 @@
   border: 1px solid #B8BBC2;
   background: #FFF;
 }
+
+/*Button submit*/
+.wpcf7-submit {
+  width: 272px;
+  height: 50px;
+  font-family: space;
+  font-weight: 400;
+  font-size: 12px;
+  padding: 8px 15px;  
+  border-radius: 5px;
+  border-color: #313144;
+  color: white;
+  background-color: #313144;
+  cursor: pointer;  
+  transition: all 400ms;
+  &:hover {
+  transform: scale(1.10);
+  background-color: white;
+  color: #313144;
+  border-color: #313144;
+  }
+  &:active {
+      border-color: #313144;
+      color: white;
+      background-color: #313144;
+  }
+}

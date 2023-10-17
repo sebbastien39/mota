@@ -47,7 +47,7 @@
            $('#myModal').hide();
        }
    });
-      $('#refPhoto').val($('#reference').text().trim().toUpperCase());
+      $('#refPhoto').val($('#reference').text().trim().toUpperCase());//Changer la valeur de l'input référence
   })(jQuery);
 
 
