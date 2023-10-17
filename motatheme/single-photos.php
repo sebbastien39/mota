@@ -32,7 +32,7 @@
             <div class="bloc3-image">
                 <div class="bloc3-image-image">
                 <?php
-                    //Preview
+                    //Flèche gauche requête par date==========================================
                     $previous = array(
                         'post_type' => 'photos',
                         'posts_per_page' => 1,
@@ -55,7 +55,7 @@
                     };
                     wp_reset_postdata();
 
-                    //Requête d'après la date
+                    // Flèche droite Requête d'après la date=====================================
                     $next = array(
                         'post_type' => 'photos',
                         'posts_per_page' => 1,
@@ -74,14 +74,12 @@
                             echo '<img src="'.$image_next[0].'">';
                         }                       
                     };
-
-                    wp_reset_postdata();
-                    
+                    wp_reset_postdata();                   
                 ?>
                 </div>
                 <div class="bloc3-arrows">
                     <?php
-                        $post_previous = get_previous_post();
+                        $post_previous = get_previous_post();//Flèche gauche
                         if(!empty($post_previous)) {
                             $url_previous = get_permalink($post_previous);
                             ?>
@@ -89,9 +87,8 @@
                             <?php
                         };
                     ?>
-
                     <?php
-                        $post_next = get_next_post();
+                        $post_next = get_next_post();//Flèche droite
                         if(!empty($post_next)) {
                             $url_next = get_permalink($post_next);
                             ?>
@@ -120,12 +117,6 @@
                     ),             
                 'orderby' => 'rand',
                 'post__not_in' => array($post->ID),
-                //'category' => 'television',
-                //'category_name' => 'reception',
-                //'tag' => 'reception',
-                //'meta_key' => 'reception', // nom du champ personnalisé
-                //'meta_value_num' => 20, // ou meta_value pour tester un texte
-                //'meta_compare' => '<' // < > != >= <=
                 'posts_per_page' => 2,
             );
             // 2. On exécute la WP Query
@@ -133,8 +124,6 @@
 
             // 3. On lance la boucle !
             if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();        
-                //the_title();
-                //the_content();
                 get_template_part('template-parts/photo_block');
             endwhile;
             endif;
