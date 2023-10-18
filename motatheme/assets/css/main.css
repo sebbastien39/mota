@@ -266,13 +266,11 @@ footer a:hover {
 .bloc3-button {
   display: flex; }
   .bloc3-button p {
-    font-family: 'Space Mono', monospace;
-    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
     font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 1.8px;
-    text-transform: uppercase; }
+    font-weight: 300;
+    line-height: normal; }
 
 .bloc3-image-image {
   height: 80px;
@@ -283,10 +281,16 @@ footer a:hover {
   justify-content: space-between; }
 
 .bloc4 p {
+  font-family: Space Mono;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
   padding-left: 145px;
   padding-top: 60px;
-  padding-bottom: 40px;
-  font-size: 18px; }
+  padding-bottom: 40px; }
 
 .bloc4-button {
   display: flex;
