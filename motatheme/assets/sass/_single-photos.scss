@@ -69,9 +69,7 @@
     }
 }
 
-.bloc3-image {
 
-}
 
 .bloc3-image-image {
     height: 80px;
@@ -148,9 +146,14 @@ button {
 
 //Flèches gauche droite miniature image
 .display-none-image-left, .display-none-image-right {
-  display: none;
-}
+    display: none;
+  }
+  
+  .show-image {
+    display: block;
+  }
 
-.show-image {
-  display: block;
-}
+ 
+  .bloc3-arrows a:hover {
+    cursor: pointer;
+  }

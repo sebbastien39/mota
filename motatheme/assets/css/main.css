@@ -339,4 +339,7 @@ button {
 .show-image {
   display: block; }
 
+.bloc3-arrows:hover {
+  cursor: pointer; }
+
 /*# sourceMappingURL=main.css.map */

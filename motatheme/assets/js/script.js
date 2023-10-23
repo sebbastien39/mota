@@ -48,11 +48,25 @@
        }
    });
       $('#refPhoto').val($('#reference').text().trim().toUpperCase());//Changer la valeur de l'input référence
+      //alert(MYAJAX.ajax_url);
+      $('btn-charger-plus').on('click', function() {
+        $.ajax({
+            type:'POST',
+            url: 'http://localhost/mota/wp-admin/admin-ajax.php',
+            data: {
+                action: 'charger_plus',
+            },
+            success: function(response) {
+                console.log(response);
+            }
+        })//Reqête Ajax
+      })
   })(jQuery);
 
 //===========================================================================================================================Flèche gauche
 const arrow_left = document.querySelector(".arrow_left");//Récupération élément image flèche gauche
-const displayImageLeft = document.querySelector('.display-none-image-left')//Récupération élément image
+if(arrow_left) {
+    const displayImageLeft = document.querySelector('.display-none-image-left')//Récupération élément image
 arrow_left.addEventListener("mouseover", (event) => {
     displayImageLeft.classList.add("show-image")
 });
@@ -60,11 +74,13 @@ arrow_left.addEventListener("mouseover", (event) => {
 arrow_left.addEventListener("mouseleave", (event) => {
     displayImageLeft.classList.remove("show-image")
 });
+}
+
 
 //===========================================================================================================================Flèche droite
 const arrow_right = document.querySelector(".arrow_right");//Récupération élément image flèche droite
-const displayImageRight = document.querySelector('.display-none-image-right')//Récupération élément image
-
+if(arrow_right) {
+    const displayImageRight = document.querySelector('.display-none-image-right')//Récupération élément image
 arrow_right.addEventListener("mouseover", (event) => {
     displayImageRight.classList.add("show-image")
 });
@@ -72,30 +88,7 @@ arrow_right.addEventListener("mouseover", (event) => {
 arrow_right.addEventListener("mouseleave", (event) => {
     displayImageRight.classList.remove("show-image")
 });
+}
+
 
 //===========================================================================================================================
-document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#ajax_call').addEventListener('click', function() {
-      let formData = new FormData();
-      formData.append('action', 'request_photos');
-   
-   
-      fetch(cookinfamily_js.ajax_url, {
-        method: 'POST',
-        body: formData,
-      }).then(function(response) {
-        if (!response.ok) {
-          throw new Error('Network response error.');
-        }
-   
-   
-        return response.json();
-      }).then(function(data) {
-        data.posts.forEach(function(post) {
-          document.querySelector('#ajax_return').insertAdjacentHTML('beforeend', '<div class="col-12 mb-5">' + post.post_title + '</div>');
-        });
-      }).catch(function(error) {
-        console.error('There was a problem with the fetch operation: ', error);
-      });
-    });
-   });

@@ -1,7 +1,35 @@
 <?php
-require_once('inc/assets.php');//Enqueuing Scripts and Styles
-require_once('inc/supports.php');//Titre site, logo, prise en charge images
-require_once('inc/menus.php');//Menus de navigation
+//require_once('includes/assets.php');//Enqueuing Scripts and Styles
+require_once('includes/supports.php');//Titre site, logo, prise en charge images
+require_once('includes/menus.php');//Menus de navigation
+
+add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_style('mota', get_template_directory_uri() . '/assets/css/main.css', array(), time());
+    wp_enqueue_script( 'mota', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), time(), true);
+    //wp_localize_script('motatheme', 'motatheme_js', array('ajax_url' => admin_url('admin-ajax.php')));//permet de partager et de passer des données de PHP vers JavaScript de manière sécurisée
+//    $x=wp_add_inline_script(
+//        'mothatheme-script',
+//        'const MYAJAX=' .wp_json_encode(
+//            array(
+//                'ajax_url' => admin_url('admin-ajax.php')
+//            )
+//        ),
+//        'before');//requête ajax passe du valeur variablephp au JS
+// var_dump('const MYAJAX=' .wp_json_encode(
+//    array(
+//        'ajax_url' => admin_url('admin-ajax.php')
+//    )
+//)); die();
+});
+
+add_action('wp_ajax_charger_plus', 'charger_plus');
+add_action('wp_ajax_nopriv_charger_plus', 'charger_plus');
+
+function charger_plus() {
+    wp_send_json(array('ok'=>'ok'));
+}
+
+
 
 //====================Image size
 function register_my_image_sizes() {
@@ -112,22 +140,58 @@ add_action('init', 'motatheme_init');
 
 //====================Test
 
-function motatheme_request_photos() {
-    $args = array( 
-        'post_type' => 'photos', 
-        'posts_per_page' => 1,
-        'orderby' => 'date',
-        'order' => 'DESC',
-    ); 
-    $query = new WP_Query($args);
-    if($query->have_posts()) {
-    $response = $query;
-    } else {
-    $response = false;
-    }   
-    wp_send_json($response);
-    wp_die();
-    }
+//function motatheme_request_photos() {
+//    $query new WP_Query([
+//        'post_type' => 'photos',
+//        'posts_per_page' => 1
+//    ]);
+//    if($query->have_posts()) {
+//        wp_send_json($query);
+//    } else {
+//        wp_send_json(false);
+//    }
+//    wp_die();
+//}
 
-add_action( 'wp_ajax_request_photos', 'motatheme_request_photos' );
-add_action( 'wp_ajax_nopriv_request_photos', 'motatheme_request_photos' );
+//function cookinfamily_request_recettes() {
+//    $args = array( 'post_type' => 'photos', 'posts_per_page' => 2 ); $query = new WP_Query($args);
+//    if($query->have_posts()) {
+//    $response = $query;
+//    } else {
+//    $response = false;
+//    }
+//    
+//    wp_send_json($response);
+//    wp_die();
+//    }
+//
+//    add_action( 'wp_ajax_request_recettes', 'cookinfamily_request_recettes' );
+//    add_action( 'wp_ajax_nopriv_request_recettes', 'cookinfamily_request_recettes' );
+
+
+
+//add_action('wp_ajax_request_photos', 'motatheme_request_photos');
+//add_action('wp_ajax_nopriv_request_photos', 'motatheme_request_photos');
+
+
+
+
+//function motatheme_request_photos() {
+//    $args = array( 
+//        'post_type' => 'photos', 
+//        'posts_per_page' => 1,
+//        'orderby' => 'date',
+//        'order' => 'DESC',
+//    ); 
+//    $query = new WP_Query($args);
+//    if($query->have_posts()) {
+//    $response = $query;
+//    } else {
+//    $response = false;
+//    }   
+//    wp_send_json($response);
+//    wp_die();
+//    }
+//
+//add_action( 'wp_ajax_request_photos', 'motatheme_request_photos' );
+//add_action( 'wp_ajax_nopriv_request_photos', 'motatheme_request_photos' );

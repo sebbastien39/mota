@@ -37,9 +37,9 @@
                         'post_type' => 'photos',
                         'posts_per_page' => 1,
                         'orderby' => 'date',
-                        'order' => 'DESC',
+                        'order' => 'ASC',
                         'date_query' => array(
-                            'before' => get_the_date('Y-m-d H:i:s'),
+                            'after' => get_the_date('Y-m-d H:i:s'),
                         ),
                     );
                     $query_previous = new WP_Query($previous);
@@ -60,9 +60,10 @@
                         'post_type' => 'photos',
                         'posts_per_page' => 1,
                         'orderby' => 'date',
-                        'order' => 'ASC',
+                        'order' => 'DESC',
                         'date_query' => array(
-                            'after' => get_the_date('Y-m-d H:i:s'),
+                            'before' => get_the_date('Y-m-d H:i:s'),
+                       
                         ),
                     );
                     $query_next = new WP_Query($next);
@@ -79,20 +80,20 @@
                 </div>
                 <div class="bloc3-arrows">
                     <?php
-                        $post_previous = get_previous_post();//Flèche gauche
+                        $post_previous = get_next_post();//Flèche gauche
                         if(!empty($post_previous)) {
                             $url_previous = get_permalink($post_previous);
                             ?>
-                            <a href="<?= $url_previous ?>"><img class="arrow_left" src="<?= get_stylesheet_directory_uri()."/assets/images/arrow-left.png" ?>" alt="arrow-left"></a>
+                            <a href="<?= $url_previous ?>"><img class="arrow_left" src="<?= get_stylesheet_directory_uri()."/assets/images/arrow-left.png" ?>" alt="flèche gauche"></a>
                             <?php
                         };
                     ?>
                     <?php
-                        $post_next = get_next_post();//Flèche droite
+                        $post_next = get_previous_post();//Flèche droite
                         if(!empty($post_next)) {
                             $url_next = get_permalink($post_next);
                             ?>
-                            <a href="<?= $url_next ?>"><img class="arrow_right" src="<?= get_stylesheet_directory_uri()."/assets/images/arrow-right.png" ?>" alt="arrow-right"></a>
+                            <a href="<?= $url_next ?>"><img class="arrow_right" src="<?= get_stylesheet_directory_uri()."/assets/images/arrow-right.png" ?>" alt="flèche droite"></a>
                             <?php
                         };
                     ?>
