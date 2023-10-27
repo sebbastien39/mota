@@ -4,10 +4,11 @@
 
 <!--contenu du site-->
 <main>
-    <h1>PHOTOGRAPHE EVENT</h1>
+<img class="hero-titre" src="<?php echo get_template_directory_uri() . '/assets/images/photographe-event-hero.png'; ?> " alt="">
+
     <div class="hero-image">
     <?php
-    //echo do_shortcode('[mota-banniere-titre titre="salut" src=""]');
+        
         // 1. On définit les arguments pour définir ce que l'on souhaite récupérer
         $args = array(
             'post_type' => 'photos',

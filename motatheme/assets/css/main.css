@@ -126,13 +126,10 @@
     color: white;
     background-color: #313144; }
 
-h1 {
-  font-family: 'Space Mono', monospace;
-  font-size: 96px;
-  font-style: italic;
-  font-weight: 700;
-  line-height: normal;
-  text-transform: uppercase; }
+.hero-titre {
+  position: absolute;
+  bottom: 500px;
+  left: 430px; }
 
 .hero-image {
   display: flex;
@@ -339,7 +336,7 @@ button {
 .show-image {
   display: block; }
 
-.bloc3-arrows:hover {
+.bloc3-arrows a:hover {
   cursor: pointer; }
 
 /*# sourceMappingURL=main.css.map */

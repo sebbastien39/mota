@@ -1,12 +1,12 @@
 <?php
-//require_once('includes/assets.php');//Enqueuing Scripts and Styles
+require_once('includes/assets.php');//Enqueuing Scripts and Styles
 require_once('includes/supports.php');//Titre site, logo, prise en charge images
 require_once('includes/menus.php');//Menus de navigation
 
-add_action('wp_enqueue_scripts', function() {
-    wp_enqueue_style('mota', get_template_directory_uri() . '/assets/css/main.css', array(), time());
-    wp_enqueue_script( 'mota', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), time(), true);
-    //wp_localize_script('motatheme', 'motatheme_js', array('ajax_url' => admin_url('admin-ajax.php')));//permet de partager et de passer des données de PHP vers JavaScript de manière sécurisée
+//add_action('wp_enqueue_scripts', function() {
+//    wp_enqueue_style('mota', get_template_directory_uri() . '/assets/css/main.css', array(), time());
+//    wp_enqueue_script( 'mota', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), time(), true);
+//    //wp_localize_script('motatheme', 'motatheme_js', array('ajax_url' => admin_url('admin-ajax.php')));//permet de partager et de passer des données de PHP vers JavaScript de manière sécurisée
 //    $x=wp_add_inline_script(
 //        'mothatheme-script',
 //        'const MYAJAX=' .wp_json_encode(
@@ -20,24 +20,23 @@ add_action('wp_enqueue_scripts', function() {
 //        'ajax_url' => admin_url('admin-ajax.php')
 //    )
 //)); die();
-});
+//});
 
-add_action('wp_ajax_charger_plus', 'charger_plus');
-add_action('wp_ajax_nopriv_charger_plus', 'charger_plus');
-
-function charger_plus() {
-    wp_send_json(array('ok'=>'ok'));
-}
+//add_action('wp_ajax_charger_plus', 'charger_plus');
+//add_action('wp_ajax_nopriv_charger_plus', 'charger_plus');
+//
+//function charger_plus() {
+//    wp_send_json(array('ok'=>'ok'));
+//}
 
 
 
 //====================Image size
-function register_my_image_sizes() {
+add_action('register_my_image_sizes', function () {
     add_image_size( 'mota-thumbnail', 80, 80, 'center' );
-    //add_image_size('mota-info-photo', 762);
     add_image_size('mota-image-resultat', 564, 495, 'center');
     add_image_size('mota-hero', 1440, 962);
-}
+});
 
 //====================Création custom post type - type de contenu personnalisé X1 "Photos"
 function motatheme_register_custom_post_types() {    
@@ -79,7 +78,7 @@ add_action('init', 'motatheme_register_custom_post_types', 11);
 
 //====================Création taxonomie X2 - "Catégorie" et "Format" sur custom_post_type "photos"
 function motatheme_init() {
-    register_taxonomy('motatheme_categorie','photos',[
+    register_taxonomy('motatheme_categorie','photos',[//concert, mariage, réception, télévision
         'labels' => [
             'name' => 'Catégories',
         ],
@@ -87,7 +86,7 @@ function motatheme_init() {
         'hierarchical' => true,//checkbox
         'show_admin_column' => true, //Affiche catégorie ds admin photos
         ]);
-        register_taxonomy('motatheme_format','photos',[
+        register_taxonomy('motatheme_format','photos',[//paysage, portrait
             'labels' => [
                 'name' => 'Formats',
             ],
@@ -96,102 +95,6 @@ function motatheme_init() {
             'show_admin_column' => true, //Affiche format ds admin photos
             ]);
 }
-
-
-
-
-//Création page d'Administration personnalisée "Mota thème"
-//function mota_theme_add_admin_pages() {
-//    add_menu_page('Tableau de bord Mota-Thème', 'MotaTheme', 'manage_options', 'motatheme-settings', 'motatheme_theme_settings', 'dashicons-admin-settings', 60); //Nom complet de la page, Nom raccourcis afficher ds menu, Niveau d'accés necéssaire pour visualiser la page (droit admin içi), slug (partie ds l'URL qui va définir la page), fonction à appeler pour définir le contenu de la page, icone à afficher ds le menu de WP, position de la pré-page ds le menu - 60 - apparaît après onglet "apparences"
-//}
-
-//Fonction qui affiche le contenu de la page
-//function motatheme_theme_settings(){
-//    echo '<h1>' . get_admin_page_title() . '</h1>';
-//
-//}
-//
-//
-//function motatheme_settings_register() {
-//    register_setting('motatheme_settings_fields', 'motatheme_settings_fields', 'motatheme_settings_fields_validate');
-//    add_settings_section('motatheme_settings_section', __('Paramètres', 'motatheme'), 'motatheme_settings_section_introduction', 'motatheme_settings_section');
-//    add_settings_field('motatheme_settings_field_introduction', __('Introduction', 'motatheme'), 'motatheme_settings_field_introduction_output', 'motatheme_settings_section', 'motatheme_settings_section');
-//}
-
-//function motatheme_settings_section_introduction() {
-//    echo __('Télécharger nouvelle image header.', 'motatheme');
-//}
-
-//function motatheme_settings_field_introduction_output() {
-//    $value = get_option('motatheme_settings_field_introduction');
-//    echo '<input name="motatheme_settings_field_introduction_output" type="text" value="'.$value.'" />';
-//}
-
-
-//====================Menu de navigation
-add_action( 'after_setup_theme', 'register_my_image_sizes' );
 //====================initialisation des taxonomies "catégorie" et "format"
 add_action('init', 'motatheme_init');
-//Page d'Administration "Mota thème"
-//add_action('admin_menu', 'mota_theme_add_admin_pages');
-//Ajout de champs à la page Admin "Tableau de bord Mota-thème"
-//add_action('admin_init', 'motatheme_settings_register');
 
-
-//====================Test
-
-//function motatheme_request_photos() {
-//    $query new WP_Query([
-//        'post_type' => 'photos',
-//        'posts_per_page' => 1
-//    ]);
-//    if($query->have_posts()) {
-//        wp_send_json($query);
-//    } else {
-//        wp_send_json(false);
-//    }
-//    wp_die();
-//}
-
-//function cookinfamily_request_recettes() {
-//    $args = array( 'post_type' => 'photos', 'posts_per_page' => 2 ); $query = new WP_Query($args);
-//    if($query->have_posts()) {
-//    $response = $query;
-//    } else {
-//    $response = false;
-//    }
-//    
-//    wp_send_json($response);
-//    wp_die();
-//    }
-//
-//    add_action( 'wp_ajax_request_recettes', 'cookinfamily_request_recettes' );
-//    add_action( 'wp_ajax_nopriv_request_recettes', 'cookinfamily_request_recettes' );
-
-
-
-//add_action('wp_ajax_request_photos', 'motatheme_request_photos');
-//add_action('wp_ajax_nopriv_request_photos', 'motatheme_request_photos');
-
-
-
-
-//function motatheme_request_photos() {
-//    $args = array( 
-//        'post_type' => 'photos', 
-//        'posts_per_page' => 1,
-//        'orderby' => 'date',
-//        'order' => 'DESC',
-//    ); 
-//    $query = new WP_Query($args);
-//    if($query->have_posts()) {
-//    $response = $query;
-//    } else {
-//    $response = false;
-//    }   
-//    wp_send_json($response);
-//    wp_die();
-//    }
-//
-//add_action( 'wp_ajax_request_photos', 'motatheme_request_photos' );
-//add_action( 'wp_ajax_nopriv_request_photos', 'motatheme_request_photos' );

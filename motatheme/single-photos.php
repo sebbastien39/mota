@@ -15,7 +15,6 @@
                         <P>FORMAT : <?php the_terms(get_the_ID(), 'motatheme_format'); //Récupération taxonomie formats?></p>
                         <P>TYPE : <?php the_field('type-photo'); //champs ACF argentique/numérique?></p>
                         <P>ANNÉE : <?php the_time( 'Y', $photos ); ?></p>
-                    </article>        
                 <?php endwhile; else: ?>
                 <p>Aucune photo : </p>
                 <?php endif; ?>
