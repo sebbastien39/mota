@@ -21,10 +21,29 @@
     </div>
     <div class="container-select">
         <div class="select-left">
-  
+        <select id="category-filter">
+            <option value="" disabled selected class="hidden-option">Catégories</option>
+            <option value="Reception">Réception</option>
+            <option value="Mariage">Mariage</option>
+            <option value="Concert">Concert</option>
+            <option value="Television">Télévision</option>
+        </select>
+
+
+
+            <select id="format-filter">
+                <option value="" disabled selected class="hidden-option">Formats</option>
+                <option value="">Tous</option>
+                <option value="paysage">Paysage</option>
+                <option value="portrait">Portrait</option>
+            </select>
         </div>
         <div class="select-right">
-       
+            <select id="date-sort">
+                <option value="" disabled selected class="hidden-option">Trier par date</option>
+                <option value="desc">Plus récentes</option>
+                <option value="asc">Plus anciennes</option>
+            </select>
         </div>        
     </div>
     <div class="selection-images">

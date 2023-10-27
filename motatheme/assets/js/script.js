@@ -95,29 +95,47 @@ arrow_right.addEventListener("mouseleave", (event) => {
 
 
 (function ($) {
-    // ...
+    let page = 1;
+    const loadedPostIds = new Set();
+    const categoryFilter = $('#category-filter');
+    const formatFilter = $('#format-filter');
+    const dateSort = $('#date-sort');
 
     $('.btn-charger-plus button').on('click', function () {
-        var button = $(this);
+        const button = $(this);
 
         $.ajax({
             type: 'POST',
-            url: myAjax.ajax_url, // Utilisez la variable myAjax.ajax_url définie dans votre fichier functions.php
+            url: myAjax.ajax_url,
             data: {
                 action: 'charger_plus',
-                // Vous pouvez également envoyer d'autres données nécessaires pour la requête ici
+                page: page,
+                data_loaded: Array.from(loadedPostIds),
+                category: categoryFilter.val(),
+                format: formatFilter.val(),
+                date_sort: dateSort.val(),
             },
             beforeSend: function () {
-                // Ajoutez un indicateur de chargement ici si nécessaire
+                console.log('Before sending AJAX request');
                 button.text('Chargement en cours...');
             },
             success: function (response) {
-                // Remplacez le contenu actuel avec le nouveau contenu
+                console.log('AJAX success');
+
+                // Remplacer le contenu actuel avec le nouveau contenu
                 $('.selection-images').append(response);
                 button.text('Charger plus');
+                page++;
+
+                // Marquer les images nouvellement chargées
+                $('.photo-block:not([data-loaded])').each(function () {
+                    const postId = $(this).data('post-id');
+                    loadedPostIds.add(postId);
+                    $(this).attr('data-loaded', true);
+                });
             },
             error: function (error) {
-                console.log(error);
+                console.log('AJAX error:', error);
             }
         });
     });

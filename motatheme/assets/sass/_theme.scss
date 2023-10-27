@@ -17,7 +17,6 @@
 //Select
 .container-select {
     display: flex;
-
     padding-right: 146px;
 }
 
@@ -50,4 +49,9 @@
     button {
         margin: 0 auto;
     }
+}
+
+//input masquer input
+.hidden-option {
+    display: none;
 }

@@ -163,6 +163,9 @@
   .btn-charger-plus button {
     margin: 0 auto; }
 
+.hidden-option {
+  display: none; }
+
 body {
   font-family: 'Space Mono', monospace;
   background-color: white; }
