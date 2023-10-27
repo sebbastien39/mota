@@ -92,3 +92,35 @@ arrow_right.addEventListener("mouseleave", (event) => {
 
 
 //===========================================================================================================================
+
+
+(function ($) {
+    // ...
+
+    $('.btn-charger-plus button').on('click', function () {
+        var button = $(this);
+
+        $.ajax({
+            type: 'POST',
+            url: myAjax.ajax_url, // Utilisez la variable myAjax.ajax_url définie dans votre fichier functions.php
+            data: {
+                action: 'charger_plus',
+                // Vous pouvez également envoyer d'autres données nécessaires pour la requête ici
+            },
+            beforeSend: function () {
+                // Ajoutez un indicateur de chargement ici si nécessaire
+                button.text('Chargement en cours...');
+            },
+            success: function (response) {
+                // Remplacez le contenu actuel avec le nouveau contenu
+                $('.selection-images').append(response);
+                button.text('Charger plus');
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+
+    // ...
+})(jQuery);

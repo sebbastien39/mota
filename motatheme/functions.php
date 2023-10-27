@@ -3,34 +3,6 @@ require_once('includes/assets.php');//Enqueuing Scripts and Styles
 require_once('includes/supports.php');//Titre site, logo, prise en charge images
 require_once('includes/menus.php');//Menus de navigation
 
-//add_action('wp_enqueue_scripts', function() {
-//    wp_enqueue_style('mota', get_template_directory_uri() . '/assets/css/main.css', array(), time());
-//    wp_enqueue_script( 'mota', get_template_directory_uri() . '/assets/js/script.js', array('jquery'), time(), true);
-//    //wp_localize_script('motatheme', 'motatheme_js', array('ajax_url' => admin_url('admin-ajax.php')));//permet de partager et de passer des données de PHP vers JavaScript de manière sécurisée
-//    $x=wp_add_inline_script(
-//        'mothatheme-script',
-//        'const MYAJAX=' .wp_json_encode(
-//            array(
-//                'ajax_url' => admin_url('admin-ajax.php')
-//            )
-//        ),
-//        'before');//requête ajax passe du valeur variablephp au JS
-// var_dump('const MYAJAX=' .wp_json_encode(
-//    array(
-//        'ajax_url' => admin_url('admin-ajax.php')
-//    )
-//)); die();
-//});
-
-//add_action('wp_ajax_charger_plus', 'charger_plus');
-//add_action('wp_ajax_nopriv_charger_plus', 'charger_plus');
-//
-//function charger_plus() {
-//    wp_send_json(array('ok'=>'ok'));
-//}
-
-
-
 //====================Image size
 add_action('register_my_image_sizes', function () {
     add_image_size( 'mota-thumbnail', 80, 80, 'center' );
@@ -98,3 +70,43 @@ function motatheme_init() {
 //====================initialisation des taxonomies "catégorie" et "format"
 add_action('init', 'motatheme_init');
 
+
+
+
+
+// Ajoutez cette fonction dans functions.php
+function motatheme_localize_script()
+{
+    wp_localize_script('mota', 'myAjax', array('ajax_url' => admin_url('admin-ajax.php')));
+}
+
+// Appelez cette fonction avec l'action wp_enqueue_scripts
+add_action('wp_enqueue_scripts', 'motatheme_localize_script');
+
+
+
+
+
+add_action('wp_ajax_charger_plus', 'charger_plus_callback');
+add_action('wp_ajax_nopriv_charger_plus', 'charger_plus_callback');
+
+function charger_plus_callback()
+{
+    $args = array(
+        'post_type' => 'photos',
+        'orderby' => 'rand',
+        'post__not_in' => isset($_POST['excluded_posts']) ? $_POST['excluded_posts'] : array(),
+        'posts_per_page' => 8,
+    );
+
+    $my_query = new WP_Query($args);
+
+    if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post();
+            get_template_part('template-parts/photo_block');
+        endwhile;
+    endif;
+
+    wp_reset_postdata();
+
+    die();
+}
