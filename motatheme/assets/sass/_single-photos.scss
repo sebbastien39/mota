@@ -109,12 +109,16 @@
     display: flex;
     justify-content: center;
     margin: 0 auto; //pour centrer le contenu
-    gap: 20px;
-    width: 60vw;
+    //gap: 20px;
+    //width: 60vw;
 }
 .autre-image {
     width: 50%;
     object-fit: cover;
+}
+
+.autre-image.wp-post-image {
+    //padding: 2px;
 }
 
 button {
@@ -151,3 +155,9 @@ button {
   .show-image {
     display: block;
   }
+
+  .selection-images img {
+    margin-right: 4px; /* Ajoute un espace de 10 pixels à droite de chaque image */
+    max-width: calc(50% - 10px); /* Utilisez une largeur maximale pour que les images restent sur deux colonnes */
+    box-sizing: border-box; /* Garantit que la marge est incluse dans la largeur de l'image */
+}

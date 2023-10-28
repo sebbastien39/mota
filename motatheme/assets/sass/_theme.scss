@@ -20,27 +20,6 @@
     padding-right: 146px;
 }
 
-.select-left {
-    width: 50vw;
-    padding-left: 146px;
-    justify-content: space-around;
-}
-
-.select-right {
-    width: 50vw;
-
-    display: flex;
-    justify-content: flex-end;
-}
-
-//Choix images
-.selection-images {
-    justify-content: center;
-    margin: 0 auto; //pour centrer le contenu
-    gap: 20px;
-    width: 50%;
-}
-
 //Bouton
 .btn-charger-plus {
     display: flex;
@@ -88,7 +67,18 @@
    justify-content: space-between;
 }
 
+.select-left {
+
+    width: 49.6vw;
+    padding-left: 146px;
+    //justify-content: space-around;
+}
+
 .select-right {
+    padding-right: 15px;
+    width: 50vw;    
+    display: flex;
+    justify-content: flex-end;
    // float: right;
 }
 
@@ -108,4 +98,8 @@
 
 .selection-images {
     clear: both; /* Pour éviter le chevauchement des éléments flottants */
+    justify-content: center;
+    margin: 0 auto; //pour centrer le contenu
+    gap: 20px;
+    width: 50%;
 }

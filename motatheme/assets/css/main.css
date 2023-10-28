@@ -140,22 +140,6 @@
   display: flex;
   padding-right: 146px; }
 
-.select-left {
-  width: 50vw;
-  padding-left: 146px;
-  justify-content: space-around; }
-
-.select-right {
-  width: 50vw;
-  display: flex;
-  justify-content: flex-end; }
-
-.selection-images {
-  justify-content: center;
-  margin: 0 auto;
-  gap: 20px;
-  width: 50%; }
-
 .btn-charger-plus {
   display: flex;
   padding-top: 40px;
@@ -189,10 +173,24 @@
   display: flex;
   justify-content: space-between; }
 
+.select-left {
+  width: 49.6vw;
+  padding-left: 146px; }
+
+.select-right {
+  padding-right: 15px;
+  width: 50vw;
+  display: flex;
+  justify-content: flex-end; }
+
 /* Ajoutez des styles supplémentaires selon vos besoins */
 .selection-images {
   clear: both;
-  /* Pour éviter le chevauchement des éléments flottants */ }
+  /* Pour éviter le chevauchement des éléments flottants */
+  justify-content: center;
+  margin: 0 auto;
+  gap: 20px;
+  width: 50%; }
 
 body {
   font-family: 'Space Mono', monospace;
@@ -330,9 +328,7 @@ footer a:hover {
 .autres-images {
   display: flex;
   justify-content: center;
-  margin: 0 auto;
-  gap: 20px;
-  width: 60vw; }
+  margin: 0 auto; }
 
 .autre-image {
   width: 50%;
@@ -366,5 +362,13 @@ button {
 
 .show-image {
   display: block; }
+
+.selection-images img {
+  margin-right: 4px;
+  /* Ajoute un espace de 10 pixels à droite de chaque image */
+  max-width: calc(50% - 10px);
+  /* Utilisez une largeur maximale pour que les images restent sur deux colonnes */
+  box-sizing: border-box;
+  /* Garantit que la marge est incluse dans la largeur de l'image */ }
 
 /*# sourceMappingURL=main.css.map */
