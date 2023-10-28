@@ -55,3 +55,57 @@
 .hidden-option {
     display: none;
 }
+
+//élément select
+#category-filter,
+#format-filter,
+#date-sort {
+    font-size: 16px; /* Choisissez la taille de police souhaitée */
+    padding: 11px 18px 11px 18px; /* Ajustez l'espacement interne souhaité */
+    width: 160px;
+    border-radius: 8px;
+    border: 1.3px solid #B8BBC2;
+    background: white;
+}
+
+.container-select {
+    padding-top: 40px;
+    padding-bottom: 30px;
+    width: 1070px;
+    margin: 0 auto; /* Centre la boîte sur la page */
+}
+
+.select-left,
+.select-right {
+   //display: inline-block;
+   //width: 50%;
+   //box-sizing: border-box;
+}
+
+.select-left {
+   // float: left;
+   display: flex;
+   justify-content: space-between;
+}
+
+.select-right {
+   // float: right;
+}
+
+/* Ajoutez des styles supplémentaires selon vos besoins */
+.select-left select,
+.select-right select {
+   // width: 100%;
+   // margin-bottom: 10px;
+   
+}
+
+.select-right input {
+   // width: 100%;
+   // box-sizing: border-box;
+   // margin-bottom: 10px;
+}
+
+.selection-images {
+    clear: both; /* Pour éviter le chevauchement des éléments flottants */
+}

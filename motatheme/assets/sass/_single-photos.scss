@@ -105,17 +105,16 @@
 
 }
 
-.autre-image {
-    width: 50%;
-    object-fit: cover;
-}
-
 .autres-images {
     display: flex;
     justify-content: center;
     margin: 0 auto; //pour centrer le contenu
     gap: 20px;
     width: 60vw;
+}
+.autre-image {
+    width: 50%;
+    object-fit: cover;
 }
 
 button {

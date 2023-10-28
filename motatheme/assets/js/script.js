@@ -96,10 +96,7 @@ arrow_right.addEventListener("mouseleave", (event) => {
 
 (function ($) {
     let page = 1;
-    const loadedPostIds = new Set();
-    const categoryFilter = $('#category-filter');
-    const formatFilter = $('#format-filter');
-    const dateSort = $('#date-sort');
+    const loadedPostIds = new Set(); // Utilisation d'un ensemble pour éviter les doublons
 
     $('.btn-charger-plus button').on('click', function () {
         const button = $(this);
@@ -111,9 +108,6 @@ arrow_right.addEventListener("mouseleave", (event) => {
                 action: 'charger_plus',
                 page: page,
                 data_loaded: Array.from(loadedPostIds),
-                category: categoryFilter.val(),
-                format: formatFilter.val(),
-                date_sort: dateSort.val(),
             },
             beforeSend: function () {
                 console.log('Before sending AJAX request');
@@ -122,17 +116,16 @@ arrow_right.addEventListener("mouseleave", (event) => {
             success: function (response) {
                 console.log('AJAX success');
 
+                // Marquer les images nouvellement chargées
+                $(response).find('.photo-block').each(function () {
+                    const postId = $(this).data('post-id');
+                    loadedPostIds.add(postId);
+                });
+
                 // Remplacer le contenu actuel avec le nouveau contenu
                 $('.selection-images').append(response);
                 button.text('Charger plus');
                 page++;
-
-                // Marquer les images nouvellement chargées
-                $('.photo-block:not([data-loaded])').each(function () {
-                    const postId = $(this).data('post-id');
-                    loadedPostIds.add(postId);
-                    $(this).attr('data-loaded', true);
-                });
             },
             error: function (error) {
                 console.log('AJAX error:', error);
@@ -142,3 +135,4 @@ arrow_right.addEventListener("mouseleave", (event) => {
 
     // ...
 })(jQuery);
+

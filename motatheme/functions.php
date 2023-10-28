@@ -81,42 +81,19 @@ function charger_plus_callback()
     $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
     $excluded_posts = isset($_POST['data_loaded']) ? array_map('intval', $_POST['data_loaded']) : array();
 
-    $category_filter = isset($_POST['category']) ? sanitize_text_field($_POST['category']) : '';
-    $format_filter = isset($_POST['format']) ? sanitize_text_field($_POST['format']) : '';
-    $date_sort = isset($_POST['date_sort']) && in_array($_POST['date_sort'], array('asc', 'desc')) ? $_POST['date_sort'] : 'desc';
-
     $args = array(
         'post_type' => 'photos',
-        'orderby' => 'date',
-        'order' => $date_sort,
+        'orderby' => 'rand',
         'posts_per_page' => 8,
         'paged' => $page,
         'post__not_in' => $excluded_posts,
     );
 
-    if ($category_filter) {
-        $args['tax_query'][] = array(
-            'taxonomy' => 'motatheme_categorie',
-            'field' => 'slug',
-            'terms' => $category_filter,
-        );
-    }
-
-    if ($format_filter) {
-        $args['tax_query'][] = array(
-            'taxonomy' => 'motatheme_format',
-            'field' => 'slug',
-            'terms' => $format_filter,
-        );
-    }
-
     $my_query = new WP_Query($args);
 
     if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post();
             $post_id = get_the_ID();
-            $data_loaded = in_array($post_id, $excluded_posts) ? 'data-loaded' : '';
-
-            echo '<div class="photo-block ' . esc_attr($data_loaded) . '" data-post-id="' . esc_attr($post_id) . '">';
+            
             // Output the content of each photo block
             get_template_part('template-parts/photo_block');
             echo '</div>';

@@ -166,6 +166,34 @@
 .hidden-option {
   display: none; }
 
+#category-filter,
+#format-filter,
+#date-sort {
+  font-size: 16px;
+  /* Choisissez la taille de police souhaitée */
+  padding: 11px 18px 11px 18px;
+  /* Ajustez l'espacement interne souhaité */
+  width: 160px;
+  border-radius: 8px;
+  border: 1.3px solid #B8BBC2;
+  background: white; }
+
+.container-select {
+  padding-top: 40px;
+  padding-bottom: 30px;
+  width: 1070px;
+  margin: 0 auto;
+  /* Centre la boîte sur la page */ }
+
+.select-left {
+  display: flex;
+  justify-content: space-between; }
+
+/* Ajoutez des styles supplémentaires selon vos besoins */
+.selection-images {
+  clear: both;
+  /* Pour éviter le chevauchement des éléments flottants */ }
+
 body {
   font-family: 'Space Mono', monospace;
   background-color: white; }
@@ -299,16 +327,16 @@ footer a:hover {
   padding-top: 40px;
   padding-bottom: 40px; }
 
-.autre-image {
-  width: 50%;
-  object-fit: cover; }
-
 .autres-images {
   display: flex;
   justify-content: center;
   margin: 0 auto;
   gap: 20px;
   width: 60vw; }
+
+.autre-image {
+  width: 50%;
+  object-fit: cover; }
 
 button {
   width: 272px;
