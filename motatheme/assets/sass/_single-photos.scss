@@ -5,7 +5,7 @@
 
 .container-image {
     display: flex;
-    padding-top: 38px;
+   // padding-top: 38px;
 }
 
 .bloc1 {
@@ -83,7 +83,7 @@
 
 .bloc4 {
     p {
-        font-family: Space Mono;
+        font-family: 'Space Mono', monospace;
         font-size: 18px;
         font-style: normal;
         font-weight: 400;
@@ -113,12 +113,13 @@
     //width: 60vw;
 }
 .autre-image {
-    width: 50%;
     object-fit: cover;
 }
 
 .autre-image.wp-post-image {
-    //padding: 2px;
+    margin-right: 4px; /* Ajoute un espace de 4 pixels à droite de chaque image */
+    max-width: calc(50% - 10px); /* Utilisez une largeur maximale pour que les images restent sur deux colonnes */
+    box-sizing: border-box; /* Garantit que la marge est incluse dans la largeur de l'image */
 }
 
 button {

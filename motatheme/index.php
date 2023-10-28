@@ -1,24 +1,12 @@
 <?php get_header(); ?>
 
 <main>
-<img class="hero-titre" src="<?php echo get_template_directory_uri() . '/assets/images/photographe-event-hero.png'; ?> " alt="">
+<div class="container-image-hero">
+    <img class="hero-image" src="<?php echo get_template_directory_uri() . '/assets/images/nathalie-11.jpeg'; ?>" alt="Votre Image">
+    <img class="hero-titre" src="<?php echo get_template_directory_uri() . '/assets/images/photographe-event-hero.png'; ?>" alt="">
+</div>
 
-    <div class="hero-image">
-    <?php
-        
-        $args = array(
-            'post_type' => 'photos',
-            'orderby' => 'rand',
-            'posts_per_page' => 1,
-        );
-        $my_query = new WP_Query( $args );
-        if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();        
-            the_post_thumbnail('mota-hero');
-        endwhile;
-        endif;
-        wp_reset_postdata();
-        ?> 
-    </div>
+
     <div class="container-select">
         <div class="select-left">
         <select id="category-filter">

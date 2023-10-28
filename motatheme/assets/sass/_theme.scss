@@ -1,17 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Space+Mono&display=swap');
+
 //Photographe Event
+.container-image-hero {
+    position: relative;
+}
+
+.container-image-hero img {
+    width: 1440px;
+    display: block;
+    margin: 0 auto;
+}
 
 .hero-titre {
     position: absolute;
-    bottom: 500px;
-    left: 430px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 1000px;
 }
 
-.hero-image {
-    display: flex;
-    align-items: center;
-    //width: 1440px;
-    justify-content: center;    
-}
+
+
+
 
 
 //Select
@@ -39,8 +50,8 @@
 #category-filter,
 #format-filter,
 #date-sort {
-    font-size: 16px; /* Choisissez la taille de police souhaitée */
-    padding: 11px 18px 11px 18px; /* Ajustez l'espacement interne souhaité */
+    font-size: 16px; 
+    padding: 11px 18px 11px 18px; 
     width: 160px;
     border-radius: 8px;
     border: 1.3px solid #B8BBC2;
@@ -54,24 +65,14 @@
     margin: 0 auto; /* Centre la boîte sur la page */
 }
 
-.select-left,
-.select-right {
-   //display: inline-block;
-   //width: 50%;
-   //box-sizing: border-box;
-}
-
 .select-left {
-   // float: left;
    display: flex;
    justify-content: space-between;
 }
 
 .select-left {
-
     width: 49.6vw;
     padding-left: 146px;
-    //justify-content: space-around;
 }
 
 .select-right {
@@ -79,21 +80,6 @@
     width: 50vw;    
     display: flex;
     justify-content: flex-end;
-   // float: right;
-}
-
-/* Ajoutez des styles supplémentaires selon vos besoins */
-.select-left select,
-.select-right select {
-   // width: 100%;
-   // margin-bottom: 10px;
-   
-}
-
-.select-right input {
-   // width: 100%;
-   // box-sizing: border-box;
-   // margin-bottom: 10px;
 }
 
 .selection-images {
@@ -102,4 +88,16 @@
     margin: 0 auto; //pour centrer le contenu
     gap: 20px;
     width: 50%;
+}
+
+//RGPD
+.texte-rgpd {
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal; 
 }
