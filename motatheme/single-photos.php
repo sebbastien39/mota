@@ -1,8 +1,6 @@
 <!--header-->
 <?php get_header(); //Cette fonction appelle le fichier header.php ?>
-<!--contenu page single-photo.php-->
-
-<!--zone de contenu-->
+<!--zone contenu page single-photo.php-->
 <main>
     <div class="container-contenu-image">
         <div class="container-image">
@@ -132,7 +130,9 @@
             ?>  
         </div>
         <div class="bloc4-button">
+        <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
             <button>Toutes les photos</button>
+        </a>
         </div>
     </div>
 </main>

@@ -1,4 +1,4 @@
-// Get the modal
+//Get the modal
 //const modal = document.querySelector('#myModal');
 
 // Get the button that opens the modal
@@ -60,7 +60,30 @@
                 console.log(response);
             }
         })//Reqête Ajax
+      });
+      
+      function sb_photo_filter() {
+            $.ajax({
+            type:'POST',//methode envoyer info
+            url: 'http://localhost/mota/wp-admin/admin-ajax.php',
+            data: {
+                action: 'filter_photos',
+                categorie_choix: $('#category-filter').val(),
+                format_choix: $('#format-filter').val(),
+                date_choix: $('#date-sort').val(),
+            },
+            success: function(response) {
+                console.log(response.length);
+                    $('.selection-images').html(response);
+            }
+    //Reqête Ajax
       })
+    }
+      $('select').each(function() {//selectione tous les select
+        $(this).on('change', function(){ //ecouteur d'evenement, this = l'objet courant qu'on manipule
+            sb_photo_filter();
+        })
+      });
   })(jQuery);
 
 //===========================================================================================================================Flèche gauche
@@ -91,7 +114,7 @@ arrow_right.addEventListener("mouseleave", (event) => {
 }
 
 
-//===========================================================================================================================
+//======================================================================================Reqête Ajax Btn charger plus
 
 
 (function ($) {
@@ -136,3 +159,12 @@ arrow_right.addEventListener("mouseleave", (event) => {
     // ...
 })(jQuery);
 
+
+
+/*========================================================================================Filtrage dynamique des images index.php*/
+
+
+
+
+
+/*========================================================================================Modale index php affichage des images*/

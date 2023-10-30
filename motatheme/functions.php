@@ -72,9 +72,11 @@ add_action('init', 'motatheme_init');
 
 
 
-//Chargement Ajax des image index.php
+//====================Chargement Ajax des image index.php
 add_action('wp_ajax_charger_plus', 'charger_plus_callback');
 add_action('wp_ajax_nopriv_charger_plus', 'charger_plus_callback');
+
+
 
 function charger_plus_callback()
 {
@@ -97,6 +99,58 @@ function charger_plus_callback()
             // Output the content of each photo block
             get_template_part('template-parts/photo_block');
             echo '</div>';
+        endwhile;
+    endif;
+
+    wp_reset_postdata();
+
+    die();
+}
+
+
+//=========================================================Label
+add_action('wp_ajax_filter_photos', 'filter_photos_callback');
+add_action('wp_ajax_nopriv_filter_photos', 'filter_photos_callback');
+
+function filter_photos_callback()
+{
+
+    $args = array(
+        'post_type' => 'photos',
+        'orderby' => 'date',
+        'order' => $_POST['date_choix'],//choix_date
+        'posts_per_page' => -1,
+    );
+    $sb_tax_query = array();
+    if(!empty($_POST['categorie_choix'])){
+       $sb_tax_query[]=
+            array(
+                'taxonomy' => 'motatheme_categorie',
+                'field' => 'id',
+                'terms' => $_POST['categorie_choix'],//POST ou GET
+            );
+        }
+        if(!empty($_POST['format_choix'])){
+            $sb_tax_query[]=
+            array(
+                'taxonomy' => 'motatheme_format',
+                'field' => 'id',
+                'terms' => $_POST['format_choix'],//récupère le format paysage / portrait
+            );
+        }
+        
+        if(!empty($sb_tax_query)) {
+            $args['tax_query']=$sb_tax_query;
+        }
+
+    $my_query = new WP_Query($args);
+
+    if ($my_query->have_posts()) : while ($my_query->have_posts()) : $my_query->the_post();
+            $post_id = get_the_ID();
+            
+            // Output the content of each photo block
+            get_template_part('template-parts/photo_block');
+            //echo '</div>';
         endwhile;
     endif;
 
