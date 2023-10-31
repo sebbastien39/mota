@@ -72,14 +72,13 @@ add_action('init', 'motatheme_init');
 
 
 
-//====================Chargement Ajax des image index.php
+//====================Chargement Ajax des image Btn "Charger plus" index.php
 add_action('wp_ajax_charger_plus', 'charger_plus_callback');
 add_action('wp_ajax_nopriv_charger_plus', 'charger_plus_callback');
 
 
 
-function charger_plus_callback()
-{
+function charger_plus_callback() {
     $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
     $excluded_posts = isset($_POST['data_loaded']) ? array_map('intval', $_POST['data_loaded']) : array();
 
@@ -98,7 +97,7 @@ function charger_plus_callback()
             
             // Output the content of each photo block
             get_template_part('template-parts/photo_block');
-            echo '</div>';
+            //echo '</div>';
         endwhile;
     endif;
 
@@ -112,8 +111,7 @@ function charger_plus_callback()
 add_action('wp_ajax_filter_photos', 'filter_photos_callback');
 add_action('wp_ajax_nopriv_filter_photos', 'filter_photos_callback');
 
-function filter_photos_callback()
-{
+function filter_photos_callback() {
 
     $args = array(
         'post_type' => 'photos',

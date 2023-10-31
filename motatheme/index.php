@@ -9,6 +9,7 @@
         <div class="select-left">
         <select id="category-filter">
             <option value="" disabled selected class="hidden-option">Catégories</option>
+            <option value="">Tous</option>
             <?php 
                 $categories = get_terms(array(
                     'taxonomy' => 'motatheme_categorie',

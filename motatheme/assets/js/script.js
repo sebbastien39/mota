@@ -32,7 +32,7 @@
 //jQuery(document).ready(function(){
 //    jQuery('#refPhoto').val('hello');
 //});
-//===========================================================================================================================Modale Contact, input Référence
+//===========================================Modale Contact, input Référence
 (function ($) { 
       // Tout le code jQuery ira ici ,  $ recupere jQuery, evite conflit
       $('.contact-btn').on('click', function() {//ouvrir la modale de contact
@@ -54,39 +54,39 @@
             type:'POST',
             url: 'http://localhost/mota/wp-admin/admin-ajax.php',
             data: {
-                action: 'charger_plus',
+                action: 'charger_plus',//????????????????????????????
             },
             success: function(response) {
                 console.log(response);
+                
             }
         })//Reqête Ajax
       });
       
-      function sb_photo_filter() {
-            $.ajax({
-            type:'POST',//methode envoyer info
-            url: 'http://localhost/mota/wp-admin/admin-ajax.php',
-            data: {
-                action: 'filter_photos',
-                categorie_choix: $('#category-filter').val(),
-                format_choix: $('#format-filter').val(),
-                date_choix: $('#date-sort').val(),
-            },
-            success: function(response) {
-                console.log(response.length);
-                    $('.selection-images').html(response);
+function sb_photo_filter() {//======================Filtrage dynamique des images avec les 3 select dans index.php
+    $.ajax({
+        type:'POST',//méthode pour envoyer info, POST ou GET
+        url: 'http://localhost/mota/wp-admin/admin-ajax.php',
+        data: {
+            action: 'filter_photos', //requếte ajax dans functions.php
+            categorie_choix: $('#category-filter').val(),
+            format_choix: $('#format-filter').val(),
+            date_choix: $('#date-sort').val(),
+        },
+        success: function(response) {
+            console.log(response.length);
+            $('.selection-images').html(response);
             }
-    //Reqête Ajax
-      })
-    }
-      $('select').each(function() {//selectione tous les select
-        $(this).on('change', function(){ //ecouteur d'evenement, this = l'objet courant qu'on manipule
-            sb_photo_filter();
         })
-      });
-  })(jQuery);
+        }
+        $('select').each(function() {//selectionne tous les select
+        $(this).on('change', function(){ //écouteur d'événement, this = l'objet courant qu'on manipule
+        sb_photo_filter();//on exécute la fonction créée un peu plus haut 
+        })
+    });
+})(jQuery);
 
-//===========================================================================================================================Flèche gauche
+//===========================================Flèche gauche
 const arrow_left = document.querySelector(".arrow_left");//Récupération élément image flèche gauche
 if(arrow_left) {
     const displayImageLeft = document.querySelector('.display-none-image-left')//Récupération élément image
@@ -99,8 +99,7 @@ arrow_left.addEventListener("mouseleave", (event) => {
 });
 }
 
-
-//===========================================================================================================================Flèche droite
+//===========================================Flèche droite
 const arrow_right = document.querySelector(".arrow_right");//Récupération élément image flèche droite
 if(arrow_right) {
     const displayImageRight = document.querySelector('.display-none-image-right')//Récupération élément image
@@ -113,10 +112,7 @@ arrow_right.addEventListener("mouseleave", (event) => {
 });
 }
 
-
-//======================================================================================Reqête Ajax Btn charger plus
-
-
+//===========================================Reqête Ajax Btn charger plus
 (function ($) {
     let page = 1;
     const loadedPostIds = new Set(); // Utilisation d'un ensemble pour éviter les doublons
@@ -159,12 +155,4 @@ arrow_right.addEventListener("mouseleave", (event) => {
     // ...
 })(jQuery);
 
-
-
-/*========================================================================================Filtrage dynamique des images index.php*/
-
-
-
-
-
-/*========================================================================================Modale index php affichage des images*/
+//===========================================Modale index php affichage des images
